@@ -66,16 +66,14 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                                 InkWell(
-                                  onTap: () {
+                                  onTap: () async {
+                         
 
-                                    titleController.text =
-                                        documentSnapshot["Title"];
-                                    priceController.text =
-                                        documentSnapshot["Price"];
-                                    authorController.text =
-                                        documentSnapshot["Author"];
-                                    editBook(documentSnapshot["Id"]);
-
+                                  titleController.text = documentSnapshot["Title"];
+                                  priceController.text = documentSnapshot["Price"];
+                                  authorController.text =documentSnapshot["Author"];
+                                  
+                                  editBook(documentSnapshot["Id"]);
                                     
                                   },
                                   child: Icon(
@@ -233,6 +231,7 @@ class _HomeState extends State<Home> {
                       value,
                     ) {
                       Message.show(message: "succesfully updated");
+                      // ignore: use_build_context_synchronously
                       Navigator.pop(context);
                     });
                   },
